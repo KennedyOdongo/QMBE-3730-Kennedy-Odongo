@@ -10,6 +10,14 @@ library(collections)
 
 x<- list(1,2,3)
 x
+
+my_name<-"Kennedy"
+class(my_name)
+
+
+five<-as.integer(5.5)
+class(five)
+
 x1=list(1,2,3)
 x1
 
@@ -23,6 +31,12 @@ my_function <- function() { # create a function with the name my_function
 
 my_function()
 
+my_function <- function(fname) {
+  paste(fname, "Griffin")
+}
+
 
 data<-read.csv("C:/Users/rodge/Downloads/2019 Data.csv")
 data
+
+read.csv()
