@@ -1,5 +1,3 @@
-
-
 ## Basic Data Structures
 
 ### 1. Vectors
@@ -115,22 +113,6 @@ my_list <- list(Name = "Alice", Age = 25, Salaries = c(50000, 52000, 54000))
 
 gender <- factor(c("male", "female", "female", "male"))
 gender
-
-
-vector<-c(1,2,3,4)
-vector = c(1,2,3,4)
-vector
-
-vector[1]
-
-demo<-c(1, "CA", 17, 300, "male")
-demo
-
-state<-demo[2]
-state
-
-17 %in% c(1, "CA", 17, 300, "male")
-
 
 #Random number generation
 
