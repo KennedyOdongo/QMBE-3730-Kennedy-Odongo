@@ -1,4 +1,122 @@
-## Basic Data Structures
+## DATA TYPES
+
+## Basic Data Types in R
+
+### 1. Numeric
+
+#Numeric is the default computational data type in R, used for real numbers. 
+#This type includes both decimal and integer values, 
+#though R internally treats all numbers as floating-point values unless specifically 
+#defined as integers.
+
+#### Example
+a <- 5.5
+b <- 2
+class(a) # "numeric"
+class(b) # "numeric"
+
+
+### 2. Integer
+
+#Integer data type is used for whole numbers. 
+#To explicitly define an integer in R, use the `L` suffix.
+
+#### Example
+a <- 5L
+class(a) # "integer"
+
+
+### 3. Complex
+
+#Complex data types are used for complex numbers, 
+#which have both real and imaginary parts.
+
+#### Example
+a <- 3 + 4i
+class(a) # "complex"
+
+### 4. Logical
+
+#Logical data type represents boolean values: TRUE or FALSE. 
+#It is often the result of conditions or logical operations.
+
+#### Example
+
+a <- TRUE
+b <- 5 > 2
+class(a) # "logical"
+class(b) # "logical", because 5 > 2 is TRUE
+
+### 5. Character
+
+#Character data type is used for text or string data. 
+#It includes any data enclosed in quotes.
+
+#### Example
+a <- "Hello, R!"
+class(a) # "character"
+
+### 6. Factors
+
+#Factors are used to handle categorical data and can be ordered or unordered. 
+#They are particularly useful in statistical modeling for representing categorical variables.
+
+gender <- factor(c("male", "female", "female", "male"))
+class(gender) # "factor"
+
+## Special Data Types
+
+### Missing Values
+
+# R uses `NA` to represent missing or undefined data. 
+#It is important to handle `NA` values in data analysis to avoid incorrect calculations or analysis.
+
+#### Example
+
+a <- c(1, NA, 3)
+sum(a) # NA
+
+### Infinite Values
+
+#R represents infinite values with `Inf` for positive infinity and `-Inf` for negative infinity. 
+#These can result from mathematical operations like division by zero.
+
+#### Example
+
+```r
+a <- 1 / 0
+b <- -1 / 0
+a # Inf
+b # -Inf
+```
+
+## Data Type Conversion
+
+R provides functions to convert between data types, such as `as.numeric()`, `as.integer()`, `as.character()`, etc.
+
+#### Example
+
+```r
+a <- "100"
+b <- as.numeric(a)
+class(b) # "numeric"
+```
+
+## Conclusion
+
+Understanding the data types in R is foundational for effective data manipulation and analysis. Each data type has its purpose and application in R programming. Practice identifying and converting between these data types to enhance your data analysis skills.
+
+### Next Steps
+
+- Experiment with each data type, creating variables and performing operations.
+- Learn how to handle special values like `NA` and `Inf` in your datasets.
+- Explore R's documentation and resources to deepen your understanding of data types and their applications in statistical analysis and data visualization.
+
+Thank you for participating in today's lecture on data types in R. I encourage you to continue practicing and exploring R's capabilities to become proficient in your data analysis endeavors.
+
+
+
+## DATA STRUCTURES
 
 ### 1. Vectors
 
