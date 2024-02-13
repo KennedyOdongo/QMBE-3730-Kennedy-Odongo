@@ -89,3 +89,12 @@ arranged_df <- arrange(df, desc(Salary))
 
 # Mutate to add new columns
 mutated_df <- mutate(df, MonthlySalary = Salary / 12)
+
+
+# set working directory and read file from directory
+setwd("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/QMBE-3730-Kennedy-Odongo")
+read.csv("mobile_phone_prices.csv")
+
+
+#read file directly
+read.csv("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/QMBE-3730-Kennedy-Odongo/mobile_phone_prices.csv")
