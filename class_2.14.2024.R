@@ -82,38 +82,18 @@ sum(a) # NA
 #These can result from mathematical operations like division by zero.
 
 #### Example
-
-```r
 a <- 1 / 0
 b <- -1 / 0
-a # Inf
-b # -Inf
-```
 
 ## Data Type Conversion
 
-R provides functions to convert between data types, such as `as.numeric()`, `as.integer()`, `as.character()`, etc.
+#R provides functions to convert between data types, such as `as.numeric()`, 
+#`as.integer()`, `as.character()`, etc.
 
 #### Example
-
-```r
 a <- "100"
 b <- as.numeric(a)
 class(b) # "numeric"
-```
-
-## Conclusion
-
-Understanding the data types in R is foundational for effective data manipulation and analysis. Each data type has its purpose and application in R programming. Practice identifying and converting between these data types to enhance your data analysis skills.
-
-### Next Steps
-
-- Experiment with each data type, creating variables and performing operations.
-- Learn how to handle special values like `NA` and `Inf` in your datasets.
-- Explore R's documentation and resources to deepen your understanding of data types and their applications in statistical analysis and data visualization.
-
-Thank you for participating in today's lecture on data types in R. I encourage you to continue practicing and exploring R's capabilities to become proficient in your data analysis endeavors.
-
 
 
 ## DATA STRUCTURES
@@ -126,7 +106,7 @@ Thank you for participating in today's lecture on data types in R. I encourage y
 
 #### Creating Vectors
 
-Vectors can be created using the `c()` function, which stands for concatenate or combine.
+#Vectors can be created using the `c()` function, which stands for concatenate or combine.
 
 # Numeric vector
 num_vector <- c(1, 2, 5, 7)
@@ -157,7 +137,7 @@ log_vector & c(TRUE, TRUE, FALSE, FALSE)
 
 #### Creating Matrices
 
-Matrices can be created using the `matrix()` function.
+#Matrices can be created using the `matrix()` function.
 
 
 # Create a matrix with 3 rows and 2 columns
@@ -174,7 +154,7 @@ my_matrix[2, 1]
 
 ### 3. Arrays
 
-Arrays are similar to matrices but can have more than two dimensions. 
+#Arrays are similar to matrices but can have more than two dimensions. 
 
 #### Creating Arrays
 
