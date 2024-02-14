@@ -43,7 +43,7 @@ class(a) # "complex"
 #### Example
 
 a <- TRUE
-b <- 5 > 2
+b <- 5<2
 class(a) # "logical"
 class(b) # "logical", because 5 > 2 is TRUE
 
@@ -83,6 +83,7 @@ sum(a) # NA
 
 #### Example
 a <- 1 / 0
+a
 b <- -1 / 0
 
 ## Data Type Conversion
@@ -92,6 +93,7 @@ b <- -1 / 0
 
 #### Example
 a <- "100"
+class(a)
 b <- as.numeric(a)
 class(b) # "numeric"
 
@@ -109,8 +111,8 @@ class(b) # "numeric"
 #Vectors can be created using the `c()` function, which stands for concatenate or combine.
 
 # Numeric vector
-num_vector <- c(1, 2, 5, 7)
-
+num_vector <-c(1, 2, 5, 7) #<-
+num_vector
 # Character vector
 char_vector <- c("a", "b", "c", "d")
 
