@@ -91,6 +91,19 @@ arranged_df <- arrange(df, desc(Salary))
 mutated_df <- mutate(df, MonthlySalary = Salary / 12)
 
 
+#
+getwd()
+#getwd returns an absolute filepath representing the current working directory of the R process; 
+#setwd(dir) is used to set the working directory to dir
+
+
+# ABSOLUTE PATH
+#An absolute path is the complete route to a file or directory from the system root.
+
+#RELATIVE PATH
+#A relative path is the location of a file or directory in relation to the current working directory
+
+
 # set working directory and read file from directory
 setwd("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/QMBE-3730-Kennedy-Odongo")
 read.csv("mobile_phone_prices.csv")
