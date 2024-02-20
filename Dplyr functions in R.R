@@ -22,6 +22,8 @@ table(mobile_phone_prices$touch_screen)
 prop.table(table(mobile_phone_prices$touch_screen))
 prop.table(table(mobile_phone_prices$bluetooth))
 
+
+prop.table(table(mobile_phone_prices$touch_screen, mobile_phone_prices$bluetooth))
 # Check data types in R columns
 # Sapply takes in a list as a parameter, applies the function elementwise to that list  and returns its output
 sapply(mobile_phone_prices, class)
@@ -39,5 +41,40 @@ which(is.na(mobile_phone_prices))
 plot(mobile_phone_prices$battery_power, type ='l')
 
 
+#Dplyr functions.
+# Filter rows
+bluetooth_phones <- filter(mobile_phone_prices, bluetooth == 1)
+bluetooth_phones
 
 
+#Sort dataframe
+sort_by_memory <- arrange(mobile_phone_prices, desc(int_memory))
+sort_by_memory
+
+#Creating new columns in a dataframe
+mutated_df <- mutate(mobile_phone_prices, power_weight_ratio = battery_power/mobile_weight)
+mutated_df$power_weight_ratio
+
+
+# Choose a set of columns in R
+selected_df <- select(mobile_phone_prices, battery_power,four_g,dual_sim)
+selected_df
+
+selected_df <- mobile_phone_prices[,1:10]
+selected_df
+
+
+
+#Visualizations in R
+# Basic using the plot function
+# https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot 
+#syntax
+#plot(column)
+#plot(x, y)
+
+
+plot(mobile_phone_prices$px_height)
+
+plot(mobile_phone_prices$px_height,mobile_phone_prices$px_width)
+
+plot(mobile_phone_prices$px_height,mobile_phone_prices$px_height)
