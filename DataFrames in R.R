@@ -87,7 +87,7 @@ selected_df <- select(df, Name, Salary)
 arranged_df <- arrange(df, desc(Salary))
 
 # Mutate to add new columns
-mutated_df <- mutate(df, MonthlySalary = Salary / 12)
+mutated_df <- mutate(df, MonthlySalary = Salary / 12) # create a new column. 
 
 getwd()
 #getwd returns an absolute filepath representing the current working directory of the R process; 
