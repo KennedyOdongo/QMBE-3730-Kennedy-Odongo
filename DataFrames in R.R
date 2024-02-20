@@ -22,6 +22,7 @@ df <- data.frame(
 )
 
 print(df)
+class(df)
 
 
 ## Accessing Data Frame Elements
@@ -106,8 +107,11 @@ getwd()
 
 # set working directory and read file from directory
 setwd("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/QMBE-3730-Kennedy-Odongo")
-read.csv("mobile_phone_prices.csv")
+
+mobile_phone_prices<-read.csv("mobile_phone_prices.csv")
+class(mobile_phone_prices)
+
 
 
 #read file directly
-read.csv("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/QMBE-3730-Kennedy-Odongo/mobile_phone_prices.csv")
+mobile_phone_prices<-read.csv("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/QMBE-3730-Kennedy-Odongo/mobile_phone_prices.csv")
