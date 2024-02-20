@@ -15,10 +15,10 @@
 
 # Create a simple data frame
 df <- data.frame(
-  Name = c("Alice", "Bob", "Charlie"),
-  Age = c(25, 30, 35),
-  Salary = c(50000, 60000, 70000),
-  stringsAsFactors = FALSE  # Ensures character data is not converted to factors (useful in R versions before 4.0.0)
+Name = c("Alice", "Bob", "Charlie"),
+Age = c(25, 30, 35),
+Salary = c(50000, 60000, 70000),
+stringsAsFactors = FALSE  # Ensures character data is not converted to factors (useful in R versions before 4.0.0)
 )
 
 print(df)
