@@ -21,8 +21,6 @@ Salary = c(50000, 60000, 70000),
 stringsAsFactors = FALSE  # Ensures character data is not converted to factors (useful in R versions before 4.0.0)
 )
 
-print(df)
-class(df)
 
 
 ## Accessing Data Frame Elements
