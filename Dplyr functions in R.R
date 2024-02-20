@@ -6,7 +6,7 @@ library(dplyr)
 mobile_phone_prices<-read.csv("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/QMBE-3730-Kennedy-Odongo/mobile_phone_prices.csv")
 
 #column names
-ls(mobile_phone_prices)
+ls(mobile_phone_prices) # Columns in the data-> code book.
 
 #dimensions of the data set -rows, columns
 dim(mobile_phone_prices) ## 2000 rows, 21 columns
@@ -26,5 +26,7 @@ which(is.na(mobile_phone_prices))
 
 #plot data
 plot(mobile_phone_prices$battery_power)
+
+
 
 
