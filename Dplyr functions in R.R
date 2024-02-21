@@ -23,10 +23,18 @@ prop.table(table(mobile_phone_prices$touch_screen))
 prop.table(table(mobile_phone_prices$bluetooth))
 
 
+## 2/23/2024
+
+
 prop.table(table(mobile_phone_prices$touch_screen, mobile_phone_prices$bluetooth))
 # Check data types in R columns
 # Sapply takes in a list as a parameter, applies the function elementwise to that list  and returns its output
 sapply(mobile_phone_prices, class)
+
+#Variance 
+sapply(mobile_phone_prices, var)
+
+sapply(mobile_phone_prices,plot)
 
 # Missing values 
 is.na(mobile_phone_prices)
@@ -65,9 +73,14 @@ selected_df
 
 
 
+
+
+
 #Visualizations in R
 # Basic using the plot function
 # https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot 
+
+
 #syntax
 #plot(column)
 #plot(x, y)
@@ -75,6 +88,13 @@ selected_df
 
 plot(mobile_phone_prices$px_height)
 
-plot(mobile_phone_prices$px_height,mobile_phone_prices$px_width)
+plot(mobile_phone_prices$px_height,mobile_phone_prices$px_width,type = 'p', main = "Title", xlab = "phone height",ylab = "phone width")
 
-plot(mobile_phone_prices$px_height,mobile_phone_prices$px_height)
+plot(mobile_phone_prices$px_height,mobile_phone_prices$px_height, type = "l")
+
+
+
+
+
+
+library(ggplot2)

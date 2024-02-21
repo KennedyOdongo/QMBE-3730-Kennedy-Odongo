@@ -11,6 +11,12 @@
 #You can create data frames using the `data.frame()` function. 
 #Each argument to this function becomes a column in the data frame.
 
+a<-5
+a_data_frame<-data.frame(a)
+class(a_data_frame)
+
+
+data.fra
 ### Example:
 
 # Create a simple data frame
@@ -22,6 +28,11 @@ stringsAsFactors = FALSE  # Ensures character data is not converted to factors (
 )
 
 
+# Viz dataframe
+df
+
+View(df)
+
 
 ## Accessing Data Frame Elements
 
@@ -29,14 +40,33 @@ stringsAsFactors = FALSE  # Ensures character data is not converted to factors (
 
 ### Example:
 
+##See all columns in a dataframe
+
+ls(df)
+
 # Access the 'Age' column
 df$Age
+
+df$Salary
+
+
+# df[row(s),column(s)]
 
 # Access the first row
 df[1, ]
 
+
+#First row column 1 and 2
+df[1,1:2]
+
+
+
 # Access the 'Name' column using the column number
 df[, 1]
+
+df[1:2,1:2]
+
+
 
 ## Manipulating Data Frames
 
@@ -46,7 +76,7 @@ df[, 1]
 
 ### Filtering Rows
 # Filter rows where Age is greater than 30
-subset(df, Age > 30)
+subset(df, Salary<5000)
 
 ### Selecting Columns
 # Select only the Name and Salary columns
@@ -57,9 +87,14 @@ df[, c("Name", "Salary")]
 # Add a new column
 df$Department <- c("HR", "Tech", "Marketing")
 
+View(df)
+
 ### Removing Columns
 # Remove the Department column
-df$Department <- NULL
+df_no_dep<- df
+View(df_no_dep)
+
+df_no_dep$Department<-NULL
 
 
 ## Aggregating Data
@@ -70,6 +105,7 @@ df$Department <- NULL
 # Compute the average salary by department
 aggregate(df$Salary, by = list(df$Department), FUN = mean)
 
+
 ## Data Frame Operations with `dplyr`
 
 #`dplyr` is a part of the tidyverse suite of packages and provides a coherent set of verbs for data manipulation.
@@ -79,15 +115,19 @@ library(dplyr)
 
 # Filter rows
 filtered_df <- filter(df, Age > 30)
+filtered_df
 
 # Select columns
 selected_df <- select(df, Name, Salary)
+selected_df
 
 # Arrange rows
 arranged_df <- arrange(df, desc(Salary))
 
 # Mutate to add new columns
 mutated_df <- mutate(df, MonthlySalary = Salary / 12) # create a new column. 
+mutated_df
+
 
 getwd()
 #getwd returns an absolute filepath representing the current working directory of the R process; 
