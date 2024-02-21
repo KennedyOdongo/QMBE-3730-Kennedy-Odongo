@@ -246,47 +246,6 @@ ggplot(diamonds, aes(depth, fill=cut)) +
 ```
 
 ## Cheat sheet
-We are covering only a few of the many plot types that can be greated with the **ggplot2** package.
+We are covering only a few of the many plot types that can be created with the **ggplot2** package.
 
 For a more comprehensive view of ggplot2, take a look at the ggplot2 [Cheat sheet](https://r4ds.had.co.nz/data-visualisation.html)
-
-
-## Maps
-### load United States state map data
-```{r}
-#install.packages('maps') # you only need to do this once. maps package includes various maps that we can use.
-#install.packages('sf') # you only need to do this once
-library(maps)     # Provides latitude and longitude data for various maps
-library(sf)
-# read the state population data
-MainStates <- map_data("state")
-
-#plot all states with ggplot2, using black borders and light blue fill
-ggplot() + 
-  geom_polygon( data=MainStates, aes(x=long, y=lat, group=group),
-                color="black", fill="lightblue" ) +
-                coord_sf(crs = st_crs(4326)) # projection
-
-```
-
-
-```{r}
-library(mapview)
-library(sf)
-states <- st_read('/Users/bilene/Downloads/us-states/us-states.shp')
-# you can select the map styles (alternatively: map.types = "Esri.WorldImagery" add option inside mapview)
-# mapviewOptions(basemaps = c("OpenStreetMap","Esri.WorldImagery","OpenTopoMap"))
-mapview(states,zcol='population', col.regions = blues9)
-```
-
-```{r}
-map1 <- mapview(states[states$NAME=='Pennsylvania',], col.regions = blues9, layer.name = "PA") 
-map2 <- mapview(states[states$NAME=='South Carolina',], col.regions = blues9, layer.name = "SC")
-# use the mapview options to turn off legends, hover etc: legend = FALSE, label = FALSE, popup = FALSE
-#install.packages('leafsync')
-library(leafsync)
-sync(map1, map2)
-#or 
-#mapviewOptions(basemaps = c("OpenStreetMap"))
-#map1 | map2
-```
