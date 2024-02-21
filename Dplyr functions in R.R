@@ -76,25 +76,3 @@ selected_df
 
 
 
-#Visualizations in R
-# Basic using the plot function
-# https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot 
-
-
-#syntax
-#plot(column)
-#plot(x, y)
-
-
-plot(mobile_phone_prices$px_height)
-
-plot(mobile_phone_prices$px_height,mobile_phone_prices$px_width,type = 'p', main = "Title", xlab = "phone height",ylab = "phone width")
-
-plot(mobile_phone_prices$px_height,mobile_phone_prices$px_height, type = "l")
-
-
-
-
-
-
-library(ggplot2)
