@@ -28,6 +28,7 @@ mobile_phone_prices<-read.csv("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy
 #The legend can be added to a graph using the R’s legend() function.
 #Legend takes as input the coordinates, text and the symbols to be interpreted.
 
+plot
 
 plot(mobile_phone_prices$px_height)
 # type argument allows you to change the type of graph: scatter, line plot
