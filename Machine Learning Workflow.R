@@ -3,6 +3,7 @@ library(tidyverse)
 library(dplyr)
 library(modelr)
 library(broom)
+library(ggplot2)
 
 # Read in Data
 df<-read.csv("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/California_Houses.csv")
@@ -69,3 +70,26 @@ rsquare(model1, df)
 
 #confidence intervals
 confint(model1, level=  0.95)
+
+
+# Add model to original table
+model_results<-augment(model1, training_set)
+model_results
+
+
+#CHECK FOR MODEL ASSUMPTIONS
+# Homoskedasticity
+ggplot(model_results)+geom_point(aes(.fitted,.resid))
+
+
+# Check for Normality
+ggplot(model_results)+geom_histogram(aes(.resid)) # check for shape
+
+## QQplot
+qqnorm(model_results$.resid)
+qqline(model_results$.resid)
+
+
+# Check for linearity
+
+ggplot(training_set, aes(Median_Income,Median_House_Value))+geom_point()+geom_smooth(method ="lm")+geom_smooth(se = FALSE, color= "red")
