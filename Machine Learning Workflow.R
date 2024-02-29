@@ -93,3 +93,12 @@ qqline(model_results$.resid)
 # Check for linearity
 
 ggplot(training_set, aes(Median_Income,Median_House_Value))+geom_point()+geom_smooth(method ="lm")+geom_smooth(se = FALSE, color= "red")
+
+
+plot(model1, which  = 5)
+
+model_results %>% arrange(desc(.cooksd))
+
+
+rmse(model1, training_set)
+rmse(model1, test_set)
