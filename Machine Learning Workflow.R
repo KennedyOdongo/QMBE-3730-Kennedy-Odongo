@@ -4,19 +4,22 @@ library(dplyr)
 library(modelr)
 library(broom)
 library(ggplot2)
-
+library(car)
 # Read in Data
 df<-read.csv("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/California_Houses.csv")
 dim(df)
 
 # Separate into training and testing sets: 70% of data is the training set (used to estimate/fit the model)
-# 30% is the test set used to measure model perfomance. 
-
+# 30% is the test set used to measure model performance. 
 
 test_set<-dplyr::sample_frac(df, 0.3)
+
 training_set<-filter(df, !(row.names(df)%in% row.names(test_set)))
 
-# check that the training and test set equal the total number of obervations in the original data set
+# check that the training and test set equal the total number of observations in the original data set
+# Sanity Check
+# When should your drop columns?
+
 dim(test_set)+dim(training_set)
 
 #Exploratory data analysis on the training set
@@ -85,6 +88,7 @@ ggplot(model_results)+geom_point(aes(.fitted,.resid))
 # Check for Normality
 ggplot(model_results)+geom_histogram(aes(.resid)) # check for shape
 
+
 ## QQplot
 qqnorm(model_results$.resid)
 qqline(model_results$.resid)
@@ -102,3 +106,6 @@ model_results %>% arrange(desc(.cooksd))
 
 rmse(model1, training_set)
 rmse(model1, test_set)
+
+### VIF 
+vif(model1)
