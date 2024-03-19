@@ -27,3 +27,7 @@ coeftest(model1, vcov = vcovHC(model1))
 #Polynomial regression in R
 model2<-lm(Median_House_Value~Median_Income+I(Median_Income^2), data = training_set)
 summary(model2)
+
+# Intercation terms
+model3<-lm(Median_House_Value~Median_Income*Tot_Rooms, data = training_set)
+summary(model3)
