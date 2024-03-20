@@ -17,13 +17,14 @@ test_set<-dplyr::sample_frac(df, 0.3)
 training_set<-filter(df, !(row.names(df)%in% row.names(test_set)))
 
 # Fit model
-
 model1<-lm(Median_House_Value~., data = training_set)
-
-ls(training_set)
+summary(model1)
 
 # Vcov matrix
 coeftest(model1, vcov = vcovHC(model1))
+#Robust standard errors, also known as Huber--White standard errors, 
+#are a technique used to adjust model-based standard errors when statistical model assumptions are violated. 
+#They are commonly used in economics and are typically larger than non-robust standard errors
 
 #Polynomial regression in R
 model2<-lm(Median_House_Value~Median_Income+I(Median_Income^2), data = training_set)
@@ -37,8 +38,6 @@ summary(model3)
 #Ln transformation
 plot(df$Median_House_Value)
 plot(log10(df$Median_House_Value))
-
-
 
 #Housing data from Canvas course space
 df1<-read_xlsx("C:/Users/rodge/OneDrive/Desktop/QMBE 3730 Kennedy Odongo/QMBE-3730-Kennedy-Odongo/housing.xlsx")
