@@ -27,7 +27,7 @@ coeftest(model1, vcov = vcovHC(model1))
 #They are commonly used in economics and are typically larger than non-robust standard errors
 
 #Polynomial regression in R
-model2<-lm(Median_House_Value~Median_Income+I(Median_Income^2), data = training_set)
+model2<-lm(Median_House_Value~I(Median_Income^2), data = training_set)
 summary(model2)
 
 # Interaction terms
