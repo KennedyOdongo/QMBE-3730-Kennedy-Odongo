@@ -28,9 +28,9 @@ plot(diff_1_data, type="l")
 
 #Alternate Hypothesis: The series has a unit root (series is not stationary).
 
-kpss.test(data_ts, null="Trend")
+kpss.test(data_ts)
 
-kpss.test(diff_1_data, null="Trend")
+kpss.test(diff_1_data)
 
 
 #ADF Test
@@ -47,3 +47,11 @@ kpss.test(diff_1_data, null="Trend")
 
 data_ts_no_NA <- na.omit(data_ts)
 adf.test(data_ts_no_NA )
+
+adf.test(data_ts_no_NA)
+
+#ACF Function in R
+acf(data_ts_no_NA)# Used to determine the MA process
+
+#PACF Function in R
+pacf(data_ts_no_NA)
