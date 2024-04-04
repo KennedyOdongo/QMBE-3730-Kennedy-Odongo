@@ -1,6 +1,8 @@
 library(tseries)
+library(forecast)
 library(dplyr)
 library(Metrics)
+
 
 data<-read.csv("C:/Users/rodge/Downloads/daily-minimum-temperatures.csv")
 
@@ -67,3 +69,5 @@ mape(test_set,forecast$pred)
 
 
 # We can also use the Auto Arima function that automatically determines the AR and MA orders for you
+AutoArimaModel=auto.arima(training_set)
+AutoArimaModel
