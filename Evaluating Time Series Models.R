@@ -2,10 +2,13 @@ library(tseries)
 library(forecast)
 library(dplyr)
 library(Metrics)
+library("ggplot2") 
+library(reshape2)
 
 
 data<-read.csv("C:/Users/rodge/Downloads/daily-minimum-temperatures.csv")
 
+data_copy<-read.csv("C:/Users/rodge/Downloads/daily-minimum-temperatures.csv")
 # Sort data from oldest data to the most recent date
 
 ls(data)
@@ -23,6 +26,7 @@ ls(data)
 
 # Split Data into training and test sets
 dim_data<-dim(data)
+dim_data
 
 len_train<-ceiling((0.7*dim_data[1])) # Use Ceiling function to round up to the nearest whole number
 len_train
@@ -34,8 +38,13 @@ test_set=data$data[(len_train+1):dim_data[1]]
 dim(data.frame(training_set))
 dim(data.frame(test_set))
 
+dim(data.frame(test_set))[1]+dim(data.frame(training_set))[1]
+
 ## Plot training set
 plot(training_set, type="l",xlab = "Number of days since 1/1/1981", ylab="daily average temperature")
+
+## Plot original data-> Longer series compared to the training set
+plot(data_copy$daily_minimum_tempretaures, type="l",xlab = "Number of days since 1/1/1981", ylab="daily average temperature")
 
 ## Test for stationarity
 kpss.test(training_set)
@@ -46,12 +55,14 @@ pacf(training_set)
 
 
 #Determine MA terms needed
-acf(training_set)
+acf(training_set) # Make sure not to include lag 0
 
 
 ### Fit the ARMA model
 arimaModel=arima(training_set, order=c(9,0,9)) # You set this numbers based on the significant AR and MA terms from your PACF
 #and ACF plots
+
+# You can also start with a smaller set of numbers until you find a good fit
 
 print(arimaModel)
 
@@ -62,6 +73,7 @@ forecast=predict(arimaModel_1, (dim(data.frame(test_set))[1]))
 dim(data.frame(forecast)[1]) # Same length as test set
 
 # Use error metrics to test to determine the accuracy of your model
+# Technically these error metrics don't convey much information. But the closer they are to 0, the better. 
 rmse(test_set,forecast$pred)
 mae(test_set,forecast$pred)
 mse(test_set,forecast$pred)
@@ -71,3 +83,5 @@ mape(test_set,forecast$pred)
 # We can also use the Auto Arima function that automatically determines the AR and MA orders for you
 AutoArimaModel=auto.arima(training_set)
 AutoArimaModel
+
+
